@@ -5,5 +5,5 @@ To use simply fill in credentials.json with your platform credentials and run th
 
 ### Currently supportet platforms
 * Nordnet
-* Mintos
+* Mintos (__NB!__ Only works with Two-factor authentication __Deactivated__)
 * Peerberry
