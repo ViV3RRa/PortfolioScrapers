@@ -4,5 +4,6 @@ This repository contains Python3 scripts for scraping your account information f
 To use simply fill in credentials.json with your platform credentials and run the script for the desired platform.
 
 ### Currently supportet platforms
+* Nordnet
 * Mintos
 * Peerberry
