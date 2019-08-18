@@ -22,9 +22,9 @@ def login():
     # Fill login form and submit
     credentials = get_credentials()
     username = getElement(By.NAME, '_username')
-    username.send_keys(credentials['username'])
+    username.send_keys(credentials['mintos_usr'])
     password = browser.find_element_by_name('_password')
-    password.send_keys(credentials['password'])
+    password.send_keys(credentials['mintos_pwd'])
     form = browser.find_element_by_id('login-form')
     form.submit()
     
@@ -48,7 +48,7 @@ def quit():
 
 def get_credentials():
     # read json file data from previous run
-    with open("./credentials.json") as f_check:
+    with open("../credentials.json") as f_check:
         data = json.load(f_check)
     return data
 
