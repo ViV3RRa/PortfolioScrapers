@@ -5,3 +5,4 @@ To use simply fill in credentials.json with your platform credentials and run th
 
 ### Currently supportet platforms
 * Mintos
+* Peerberry
