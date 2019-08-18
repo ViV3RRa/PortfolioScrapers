@@ -7,3 +7,4 @@ To use simply fill in credentials.json with your platform credentials and run th
 * Nordnet
 * Mintos (__NB!__ Only works with Two-factor authentication __Deactivated__)
 * Peerberry
+* Grupeer
