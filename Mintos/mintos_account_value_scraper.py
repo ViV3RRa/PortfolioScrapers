@@ -6,34 +6,36 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-host = "https://www.mintos.com/en"
+host = "https://www.mintos.com/en/login"
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
 browser = webdriver.Chrome(executable_path='/usr/lib/chromium-browser/chromedriver', chrome_options = options)
 wait = WebDriverWait(browser, timeout = 10) # seconds
 
 def login():
-    # Navigate to login page
-    browser.get(host + "/")
-    account = getElement(By.ID, 'header-login-button')
-    account.click()
-    time.sleep(1) # workaround: javascript needs to be loaded
-    
-    # Fill login form and submit
-    credentials = get_credentials()
-    username = getElement(By.NAME, '_username')
-    username.send_keys(credentials['usr'])
-    password = browser.find_element_by_name('_password')
-    password.send_keys(credentials['pwd'])
-    form = browser.find_element_by_id('login-form')
-    form.submit()
-    
-    # Retreive total value of account
-    overview_box = getElement(By.CLASS_NAME, 'overview-box')
-    value_element = overview_box.find_element_by_class_name('value')
-    account_value = value_element.text.split('€')[1].strip()
-    
-    return account_value
+    try:
+    	# Navigate to login page
+    	browser.get(host)
+
+    	# Fill login form and submit
+    	credentials = get_credentials()
+    	username = getElement(By.NAME, '_username')
+    	username.send_keys(credentials['usr'])
+    	password = getElement(By.NAME, '_password')
+    	password.send_keys(credentials['pwd'])
+    	form = getElement(By.ID, 'login-form')
+    	form.submit()
+
+    	# Retreive total value of account
+    	overview_box = getElement(By.CLASS_NAME, 'overview-box')
+    	value_element = overview_box.find_element_by_class_name('value')
+    	account_value = value_element.text.split('€')[1].strip()
+
+    	return account_value
+    except Exception as e:
+    	print(e)
+    	codecs.open('tmp/dump', 'w', encoding='utf-8').write(browser.page_source)
+    	quit()
 
 
 def getElement(by, name):

@@ -13,24 +13,29 @@ browser = webdriver.Chrome(executable_path='/usr/lib/chromium-browser/chromedriv
 wait = WebDriverWait(browser, timeout = 10) # seconds
 
 def login():
-    # Navigate to login page
-    browser.get(host + "/")
+    try:
+        # Navigate to login page
+        browser.get(host)
     
-    # Fill login form and submit
-    credentials = get_credentials()
-    username = browser.find_element_by_id('email')
-    username.send_keys(credentials['usr'])
-    password = browser.find_element_by_name('password')
-    password.send_keys(credentials['pwd'])
-    login = browser.find_element_by_class_name('content-wrapper')
-    form = login.find_element_by_tag_name('form')
-    form.submit()
+        # Fill login form and submit
+        credentials = get_credentials()
+        username = getElement(By.ID, 'email')
+        username.send_keys(credentials['usr'])
+        password = getElement(By.NAME, 'password')
+        password.send_keys(credentials['pwd'])
+        login = getElement(By.CLASS_NAME, 'content-wrapper')
+        form = login.find_element_by_tag_name('form')
+        form.submit()
     
-    # Retreive total value of account
-    account_info = getElement(By.CLASS_NAME, 'block-value')
-    total_value = account_info.text.split('€')[1].strip()
+        # Retreive total value of account
+        account_info = getElement(By.CLASS_NAME, 'block-value')
+        total_value = account_info.text.split('€')[1].strip()
     
-    return total_value
+        return total_value
+    except Exception as e:
+        print(e)
+        codecs.open('tmp/dump', 'w', encoding='utf-8').write(browser.page_source)
+        quit()
 
 
 def getElement(by, name):

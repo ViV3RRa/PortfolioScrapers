@@ -13,24 +13,29 @@ browser = webdriver.Chrome(executable_path='/usr/lib/chromium-browser/chromedriv
 wait = WebDriverWait(browser, timeout = 10) # seconds
 
 def login():
-    # Navigate to login page
-    browser.get(host + "/")
+    try:
+        # Navigate to login page
+        browser.get(host)
     
-    # Fill login form and submit
-    credentials = get_credentials()
-    username = browser.find_element_by_id('email')
-    username.send_keys(credentials['usr'])
-    password = browser.find_element_by_id('password')
-    password.send_keys(credentials['pwd'])
-    form = browser.find_element_by_class_name('login-form')
-    form.submit()
+        # Fill login form and submit
+        credentials = get_credentials()
+        username = getElement(By.ID, 'email')
+        username.send_keys(credentials['usr'])
+        password = getElement(By.ID, 'password')
+        password.send_keys(credentials['pwd'])
+        form = getElement(By.CLASS_NAME, 'login-form')
+        form.submit()
     
-    # Retreive total value of account
-    account_info = getElement(By.CLASS_NAME, 'col-xl-9')
-    account_value_and_unit = account_info.find_element_by_class_name('amount-trim')
-    account_value = account_value_and_unit.text.split('€')[1].strip()
+        # Retreive total value of account
+        account_info = getElement(By.CLASS_NAME, 'col-xl-9')
+        account_value_and_unit = account_info.find_element_by_class_name('amount-trim')
+        account_value = account_value_and_unit.text.split('€')[1].strip()
     
-    return account_value
+        return account_value
+    except Exception as e:
+        print(e)
+        codecs.open('tmp/dump', 'w', encoding='utf-8').write(browser.page_source)
+        quit()
 
 
 def getElement(by, name):

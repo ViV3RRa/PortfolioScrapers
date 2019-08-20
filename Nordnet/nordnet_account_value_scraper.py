@@ -6,40 +6,38 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
-host = "https://www.nordnet.dk/mux/web/nordnet/index.html"
+host = "https://www.nordnet.dk/mux/login/start.html?cmpi=start-loggain&state=signin"
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
 browser = webdriver.Chrome(executable_path='/usr/lib/chromium-browser/chromedriver', chrome_options = options)
 wait = WebDriverWait(browser, timeout = 10) # seconds
 
 def login():
-    # Navigate to login page
-    browser.get(host + "/")
-    header = browser.find_element_by_class_name('signup-signin')
-    account = header.find_element_by_class_name('signin-btn')
-    account.click()
-    time.sleep(1) # workaround: javascript needs to be loaded
-    login_methods = browser.find_element_by_class_name('loginMethods')
-    login_link = login_methods.find_element_by_class_name('button')
-    login_link.click()
-    time.sleep(1) # workaround: javascript needs to be loaded
+    try:
+        # Navigate to login page
+        browser.get(host)
+        login_methods = getElement(By.CLASS_NAME, 'loginMethods')
+        login_link = login_methods.find_element_by_class_name('button')
+        login_link.click()
     
-    # Fill login form and submit
-    credentials = get_credentials()
-    username = browser.find_element_by_id('username')
-    username.send_keys(credentials['usr'])
-    password = browser.find_element_by_id('password')
-    password.send_keys(credentials['pwd'])
-    form = browser.find_element_by_class_name('sign-in-legacy_form')
-    form.submit()
+        # Fill login form and submit
+        credentials = get_credentials()
+        username = getElement(By.ID, 'username')
+        username.send_keys(credentials['usr'])
+        password = getElement(By.ID, 'password')
+        password.send_keys(credentials['pwd'])
+        form = getElement(By.CLASS_NAME, 'sign-in-legacy_form')
+        form.submit()
     
-    # Retreive total value of account
-    portfolio_today = getElement(By.ID, 'portfolioToday')
-    result_line = portfolio_today.find_element_by_class_name('resultLine')
-    result_value_and_unit = result_line.find_elements_by_tag_name('td')[1]
-    result_value = result_value_and_unit.text.split('DKK')[0].replace(" ", "")
+        # Retreive total value of account
+        section = getElement(By.CLASS_NAME, 'section')
+        result_value = section.find_element_by_class_name('value').text.replace(" ", "")
 
-    return result_value
+        return result_value
+    except Exception as e:
+        print(e)
+        codecs.open('tmp/dump', 'w', encoding='utf-8').write(browser.page_source)
+        quit()
 
 
 def getElement(by, name):
