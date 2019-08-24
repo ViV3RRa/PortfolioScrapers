@@ -1,0 +1,1 @@
+import platforms.nordnet, platforms.mintos, platforms.peerberry, platforms.grupeer, platforms.fastinvest
