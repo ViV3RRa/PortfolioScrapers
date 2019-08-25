@@ -1,32 +1,16 @@
-from platforms.mintos import Mintos
-from platforms.nordnet import Nordnet
-from platforms.peerberry import Peerberry
-from platforms.grupeer import Grupeer
-from platforms.fastinvest import Fastinvest
+from utils.utils import *
 
 
-nordnet = Nordnet()
-nordnet.login()
-print('Nordnet:	' + str(nordnet.get_account_value()) + ' kr')
-nordnet.quit()
-
-mintos = Mintos()
-mintos.login()
-print('Mintos:		' + str(mintos.get_account_value()) + ' €')
-mintos.quit()
-
-peerberry = Peerberry()
-peerberry.login()
-print('Peerberry:	' + str(peerberry.get_account_value()) + ' €')
-peerberry.quit()
-
-grupeer = Grupeer()
-grupeer.login()
-print('Grupeer:	' + str(grupeer.get_account_value()) + ' €')
-grupeer.quit()
-
-fastinvest = Fastinvest()
-fastinvest.login()
-print('Fastinvest:	' + str(fastinvest.get_account_value()) + ' €')
-fastinvest.quit()
+for platform_to_scrape in get_platforms_to_scrape():
+	try:
+		platform = get_platform(platform_to_scrape)
+		if platform is not None:
+			platform_name = platform.__class__.__name__
+			platform.login()
+			print('{}:	{} {}'.format(platform_name, str(platform.get_account_value()), 'kr' if isinstance(platform, Nordnet) else '€'))
+			platform.quit()
+	except Exception as e:
+		print(e)
+		platform.send_alert_email(platform_name, e)
+		platform.quit()
 

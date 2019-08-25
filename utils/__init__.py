@@ -1,1 +1,1 @@
-import utils.browser, utils.credentials, utils.email_alert
+import utils.utils, utils.browser, utils.credentials, utils.email_alert

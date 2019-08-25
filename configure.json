@@ -1,3 +1,10 @@
 {
+	"platforms_to_scrape": [
+		"Nordnet",
+		"Mintos",
+		"Peerberry",
+		"Grupeer",
+		"Fastinvest"
+	],
 	"alert_email_receiver": ""
 }

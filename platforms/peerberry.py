@@ -1,15 +1,10 @@
-from selenium.webdriver.common.by import By
-from utils.browser import Browser
-from utils.credentials import Credentials
-from utils.email_alert import EmailAlert
+from platforms.platform import Platform
 
 
-class Peerberry:
+class Peerberry(Platform):
 
     def __init__(self):
-        self.browser = Browser()
-        self.credentials = Credentials('peerberry')
-        self.email_alert = EmailAlert()
+        super(Peerberry, self).__init__('peerberry')
 
 
     def login(self):
@@ -18,24 +13,22 @@ class Peerberry:
             self.browser.get('https://peerberry.com/en/login')
         
             # Fill login form and submit
-            username = self.browser.getElement(By.NAME, 'email')
+            username = self.browser.getElement(self.By.NAME, 'email')
             username.send_keys(self.credentials.username)
-            password = self.browser.getElement(By.NAME, 'password')
+            password = self.browser.getElement(self.By.NAME, 'password')
             password.send_keys(self.credentials.password)
-            login = self.browser.getElement(By.CLASS_NAME, 'PAGE')
+            login = self.browser.getElement(self.By.CLASS_NAME, 'PAGE')
             form = login.find_element_by_tag_name('form')
             form.submit()
             
         except Exception as e:
-            print(e)
-            self.email_alert.send_email_alert('Peerberry', e)
-            self.browser.quit()
+            raise
 
 
     def get_account_value(self):
         try:
             # Retreive total value of account
-            account_info = self.browser.getElement(By.CLASS_NAME, 'account-info')
+            account_info = self.browser.getElement(self.By.CLASS_NAME, 'account-info')
             account_balance = account_info.find_elements_by_class_name('row')
             total_div = account_balance[1].find_elements_by_class_name('col-sm-4')
             total_value_component = total_div[2].find_element_by_tag_name('div')
@@ -43,11 +36,5 @@ class Peerberry:
 
             return total_value
         except Exception as e:
-            print(e)
-            self.email_alert.send_email_alert('Peerberry', e)
-            self.browser.quit()
-
-
-    def quit(self):
-        self.browser.quit()
+            raise
 

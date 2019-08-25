@@ -1,5 +1,6 @@
 import smtplib, ssl
 import json
+import utils
 from utils.credentials import Credentials
 
 class EmailAlert:
@@ -12,16 +13,12 @@ class EmailAlert:
         self.context = ssl.create_default_context()
 
         # Get credentials from JSON file
-        self.credentials = Credentials('alert_email')
+        self.credentials = Credentials('alert_email_sender')
         self.sender_email = self.credentials.username
         self.password = self.credentials.password
-        self.receiver_email = self.__get_receiver_email()
-
-
-    def __get_receiver_email(self):
-        with open("configure.json") as f_check:
-            receiver_email = json.load(f_check)['alert_email_receiver']
-        return receiver_email
+        
+        from utils.utils import get_receiver_email
+        self.receiver_email = get_receiver_email()
 
     
     def send_email_alert(self, platform, text):
@@ -34,8 +31,7 @@ class EmailAlert:
             server.login(self.sender_email, self.password)
             server.sendmail(self.sender_email, self.receiver_email, self.__compose_message(platform, text))
         except Exception as e:
-            # Print any error messages to stdout
-            print('test ' + str(e))
+            print(e)
         finally:
             server.quit() 
 
