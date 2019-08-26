@@ -35,3 +35,16 @@ class Grupeer(Platform):
         except Exception as e:
             raise
 
+
+    def get_available_funds(self):
+        try:
+            # Retreive total value of account
+            overview_block = self.browser.getElement(self.By.CLASS_NAME, 'overview-block')
+            available_funds_row = overview_block.find_elements_by_class_name('row')[0]
+            available_funds_component = available_funds_row.find_element_by_class_name('block-info-value')
+            available_funds = available_funds_component.text.split('€')[1].strip()
+
+            return available_funds
+        except Exception as e:
+            raise
+

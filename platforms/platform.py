@@ -24,6 +24,11 @@ class Platform(abc.ABC):
     	pass
 
 
+    @abc.abstractmethod
+    def get_available_funds(self):
+    	pass
+
+
     def send_alert_email(self, platform_name, message):
     	self.email_alert.send_email_alert(platform_name, message)
 

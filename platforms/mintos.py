@@ -35,3 +35,16 @@ class Mintos(Platform):
             raise
 
 
+    def get_available_funds(self):
+        try:
+            # Retreive available funds in account
+            overview_box = self.browser.getElement(self.By.CLASS_NAME, 'overview-box')
+            data = overview_box.find_element_by_class_name('data')
+            value_element = data.find_elements_by_tag_name('td')[1]
+            available_funds = value_element.text.split('€')[1].strip()
+
+            return available_funds
+        except Exception as e:
+            raise
+
+

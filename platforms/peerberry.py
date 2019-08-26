@@ -38,3 +38,17 @@ class Peerberry(Platform):
         except Exception as e:
             raise
 
+
+    def get_available_funds(self):
+        try:
+            # Retreive available funds in account
+            account_info = self.browser.getElement(self.By.CLASS_NAME, 'account-info')
+            account_balance = account_info.find_elements_by_class_name('row')
+            available_funds_div = account_balance[1].find_elements_by_class_name('col-sm-4')
+            available_funds_component = available_funds_div[0].find_element_by_tag_name('div')
+            available_funds = available_funds_component.text.split('€')[0].strip()
+
+            return available_funds
+        except Exception as e:
+            raise
+

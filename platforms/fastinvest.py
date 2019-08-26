@@ -35,3 +35,15 @@ class Fastinvest(Platform):
         except Exception as e:
             raise
 
+
+    def get_available_funds(self):
+        try:
+            # Retreive total value of account
+            account_info = self.browser.getElement(self.By.CLASS_NAME, 'col-xl-9')
+            available_funds_and_unit = account_info.find_elements_by_class_name('amount-trim')[1]
+            available_funds = available_funds_and_unit.text.split('€')[1].strip()
+
+            return available_funds
+        except Exception as e:
+            raise
+

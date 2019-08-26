@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from platforms.mintos import Mintos
 from platforms.nordnet import Nordnet
 from platforms.peerberry import Peerberry
@@ -7,15 +8,16 @@ from platforms.fastinvest import Fastinvest
 
 
 def get_platform(platform_name):
-	if platform_name == 'Nordnet':
+	platform_name = platform_name.lower()
+	if platform_name == 'nordnet':
 		return Nordnet()
-	elif platform_name == 'Mintos':
+	elif platform_name == 'mintos':
 		return Mintos()
-	elif platform_name == 'Peerberry':
+	elif platform_name == 'peerberry':
 		return Peerberry()
-	elif platform_name == 'Grupeer':
+	elif platform_name == 'grupeer':
 		return Grupeer()
-	elif platform_name == 'Fastinvest':
+	elif platform_name == 'fastinvest':
 		return Fastinvest()
 	else:
 		return None
@@ -33,4 +35,14 @@ def get_platforms_to_scrape():
 
 def get_receiver_email():
 	return __get_from_configure_file('alert_email_receiver')
+
+
+def get_current_date_as_string():
+	now = datetime.now() # current date and time
+	return now.strftime("%Y-%m-%d")
+
+
+def persist_data_in_file(platform_name, data):
+	with open('persistent_data/{}.csv'.format(platform_name.lower()),'a') as fd:
+		fd.write(data + '\n')
 
