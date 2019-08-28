@@ -1,4 +1,4 @@
-<img src="platform_icons/brickshare_logo.jpg" alt="alt text" title="Smiley face" width="100" height="100" style="pointer-events: none;  cursor: default;">
+<img onclick="return onimgclick(event)" src="platform_icons/brickshare_logo.jpg" alt="alt text" title="BrickShare" width="100" height="100">
 ![brickshare_logo](platform_icons/brickshare_logo.jpg =100x)
 # PortfolioScrapers
 This repository contains Python3 scripts for scraping your account information from different investment platforms.
