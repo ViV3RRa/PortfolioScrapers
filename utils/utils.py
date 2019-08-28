@@ -1,7 +1,8 @@
 import json
 from datetime import datetime
-from platforms.mintos import Mintos
+from platforms.brickshare import BrickShare
 from platforms.nordnet import Nordnet
+from platforms.mintos import Mintos
 from platforms.peerberry import Peerberry
 from platforms.grupeer import Grupeer
 from platforms.fastinvest import Fastinvest
@@ -9,7 +10,9 @@ from platforms.fastinvest import Fastinvest
 
 def get_platform(platform_name):
 	platform_name = platform_name.lower()
-	if platform_name == 'nordnet':
+	if platform_name == 'brickshare':
+		return BrickShare()
+	elif platform_name == 'nordnet':
 		return Nordnet()
 	elif platform_name == 'mintos':
 		return Mintos()

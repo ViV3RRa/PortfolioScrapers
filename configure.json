@@ -1,5 +1,6 @@
 {
 	"platforms_to_scrape": [
+		"Brickshare",
 		"Nordnet",
 		"Mintos",
 		"Peerberry",
