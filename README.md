@@ -1,6 +1,4 @@
-<img onclick="return onimgclick(event)" src="platform_icons/brickshare_logo.jpg" alt="alt text" title="BrickShare" width="100" height="100">
-![test image size](platform_icons/brickshare_logo.jpg){:height="100px" width="100px"}
-![brickshare_logo](platform_icons/brickshare_logo.jpg =100x)
+<img src="platform_icons/brickshare_logo.jpg" alt="alt text" title="BrickShare" width="75" height="75">
 # PortfolioScrapers
 This repository contains Python3 scripts for scraping your account information from different investment platforms.
 Supports email notifications send from a supplied _Gmail_ to a receiver mail if the scraper failes to scrape a platform.
