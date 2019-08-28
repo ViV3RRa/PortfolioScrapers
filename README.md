@@ -1,4 +1,4 @@
-<img src="platform_icons/brickshare_logo.jpg" alt="alt text" title="BrickShare" width="75" height="75"> <img src="platform_icons/nordnet_logo.jpg" alt="alt text" title="Nordnet" height="75">
+<img src="platform_icons/brickshare_logo.jpg" alt="alt text" title="BrickShare" width="75" height="75"> <img src="platform_icons/nordnet_logo.png" alt="alt text" title="Nordnet" height="75">
 
 # PortfolioScrapers
 This repository contains Python3 scripts for scraping your account information from different investment platforms.
