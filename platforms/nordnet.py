@@ -22,9 +22,6 @@ class Nordnet(Platform):
             password.send_keys(self.credentials.password)
             form = self.browser.getElement(self.By.CLASS_NAME, 'sign-in-legacy_form')
             form.submit()
-
-            navigate_button = self.browser.getElement(self.By.ID, 'alias_22066724')
-            navigate_button.click()
         
         except Exception as e:
             raise
@@ -33,12 +30,10 @@ class Nordnet(Platform):
     def get_account_value(self):
         try:
             # Retreive total value of account
-            portfolio_today = self.browser.getElement(self.By.ID, 'portfolioToday')
-            result_line = portfolio_today.find_element_by_class_name('resultLine')
-            value_element = result_line.find_element_by_tag_name('span')
-            result_value = value_element.text.replace(" ", "").split("DKK")[0]
+            portfolio_today = self.browser.getElement(self.By.CLASS_NAME, 'kgnLnO')
+            portfolio_today_value = portfolio_today.text.replace(".", "")
 
-            return result_value
+            return portfolio_today_value
         except Exception as e:
             raise
 
@@ -46,13 +41,10 @@ class Nordnet(Platform):
     def get_available_funds(self):
         try:
             # Retreive available funds in account
-            portfolio_today = self.browser.getElement(self.By.ID, 'portfolioToday')
-            table_space = portfolio_today.find_element_by_class_name('tableSpace')
-            value_row = table_space.find_elements_by_tag_name('tr')[0]
-            value_element = table_space.find_element_by_tag_name('span')
-            available_funds = value_element.text.replace(" ", "").split("DKK")[0]
+            available_funds_container = self.browser.getElement(self.By.CLASS_NAME, 'dULHMh')
+            available_funds_element = available_funds_container.find_element_by_class_name('gJPols')
 
-            return available_funds
+            return available_funds_element.text
         except Exception as e:
             raise
 

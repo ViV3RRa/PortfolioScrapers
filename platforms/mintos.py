@@ -9,12 +9,14 @@ class Mintos(Platform):
     def login(self):
         try:
             # Navigate to login page
-            self.browser.get('https://www.mintos.com/en/login')
+            self.browser.get('https://www.mintos.com/en/')
+            login_button = self.browser.getElement(self.By.ID, 'header-login-button')
+            login_button.click()
 
             # Fill login form and submit
-            username = self.browser.getElement(self.By.NAME, '_username')
+            username = self.browser.getElement(self.By.ID, 'login-username')
             username.send_keys(self.credentials.username)
-            password = self.browser.getElement(self.By.NAME, '_password')
+            password = self.browser.getElement(self.By.ID, 'login-password')
             password.send_keys(self.credentials.password)
             form = self.browser.getElement(self.By.ID, 'login-form')
             form.submit()
