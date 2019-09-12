@@ -40,12 +40,16 @@ def get_receiver_email():
 	return __get_from_configure_file('alert_email_receiver')
 
 
+def __get_path_to_persist_data():
+	return __get_from_configure_file('path_to_persist_data')
+
+
 def get_current_date_as_string():
 	now = datetime.now() # current date and time
 	return now.strftime("%Y-%m-%d")
 
 
 def persist_data_in_file(platform_name, data):
-	with open('persistent_data/{}.csv'.format(platform_name.lower()),'a') as fd:
+	with open('{}{}.csv'.format(__get_path_to_persist_data(), platform_name.lower()), 'a') as fd:
 		fd.write(data + '\n')
 

@@ -65,7 +65,8 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 		"Grupeer",
 		"Fastinvest"
 	],
-	"alert_email_receiver": ""
+	"alert_email_receiver": "",
+	"path_to_persist_data": "absolute/path/to/persist/data/"
 }
 ```
 
