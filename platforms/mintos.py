@@ -1,4 +1,6 @@
 from platforms.platform import Platform
+import codecs
+import time
 
 
 class Mintos(Platform):
@@ -12,12 +14,16 @@ class Mintos(Platform):
             self.browser.get('https://www.mintos.com/en/')
             login_button = self.browser.getElement(self.By.ID, 'header-login-button')
             login_button.click()
+            #self.browser.get('https://www.mintos.com/en/login')
 
             # Fill login form and submit
             username = self.browser.getElement(self.By.ID, 'login-username')
+            username.clear()
             username.send_keys(self.credentials.username)
             password = self.browser.getElement(self.By.ID, 'login-password')
+            password.clear()
             password.send_keys(self.credentials.password)
+            time.sleep(2)
             form = self.browser.getElement(self.By.ID, 'login-form')
             form.submit()
 
@@ -28,7 +34,9 @@ class Mintos(Platform):
     def get_account_value(self):
         try:
             # Retreive total value of account
+            codecs.open('dump.html', 'w', encoding='utf-8').write(self.browser.browser.page_source)
             overview_box = self.browser.getElement(self.By.CLASS_NAME, 'overview-box')
+            print(overview_box.text)
             value_element = overview_box.find_element_by_class_name('value')
             account_value = value_element.text.split('€')[1].strip()
 

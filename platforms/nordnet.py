@@ -10,7 +10,7 @@ class Nordnet(Platform):
     def login(self):
         try:
             # Navigate to login page
-            self.browser.get('https://www.nordnet.dk/mux/login/start.html?cmpi=start-loggain&state=signin')
+            self.browser.get('https://classic.nordnet.dk/mux/login/startDK.html?clearEndpoint=0&intent=next')
             login_methods = self.browser.getElement(self.By.CLASS_NAME, 'loginMethods')
             login_link = login_methods.find_element_by_class_name('button')
             login_link.click()
@@ -30,6 +30,7 @@ class Nordnet(Platform):
     def get_account_value(self):
         try:
             # Retreive total value of account
+            self.browser.get('https://www.nordnet.dk/oversigt')
             portfolio_today = self.browser.getElement(self.By.CLASS_NAME, 'kgnLnO')
             portfolio_today_value = portfolio_today.text.replace(".", "")
 
