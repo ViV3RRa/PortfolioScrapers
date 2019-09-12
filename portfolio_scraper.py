@@ -10,9 +10,9 @@ for platform_to_scrape in get_platforms_to_scrape():
 			total_account_value = str(platform.get_account_value()).replace('.', ',')
 			available_funds = str(platform.get_available_funds()).replace('.', ',')
 			platform.quit()
-			data = '{}: {};{};{}'.format(platform_name, get_current_date_as_string(), total_account_value, available_funds)
+			data = '{};{};{}'.format(get_current_date_as_string(), total_account_value, available_funds)
 			persist_data_in_file(platform_name, data)
-			print(data)
+			print(platform_name + ': ' + data)
 			print('-----------------------------------------------')
 	except Exception as e:
 		print(e)
