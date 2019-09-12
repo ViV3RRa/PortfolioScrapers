@@ -14,11 +14,43 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 
 ### Prerequisites!
 * Python 3
+* pip3
 * Install Selenium for Python3
 * Install a Chrome/Chromium webdriver and supply the absolute path to the webdriver in ```utils/browser.py```
 
 ### Setup scraper
-* Fill in ```credentials.json``` (__NB!__ ```alert_email_sender``` must be a _Gmail_)
+* Create the file ```credentials.json``` in the root of the project (alongside portfolio\_scraper.py)
+```{
+	"alert\_email\_sender": {
+		"usr": "",
+		"pwd": ""
+	},
+	"brickshare": {
+		"usr": "",
+		"pwd": ""
+	},
+	"nordnet": {
+		"usr": "",
+		"pwd": ""
+	},
+	"mintos": {
+		"usr": "",
+		"pwd": ""
+	},
+	"peerberry": {
+		"usr": "",
+		"pwd": ""
+	},
+	"grupeer": {
+		"usr": "",
+		"pwd": ""
+	},
+	"fastinvest": {
+		"usr": "",
+		"pwd": ""
+	}
+}```
+(__NB!__ ```alert_email_sender``` must be a _Gmail_)
 * Choose the platforms to be scraped and the receiver of any notification-mails in ```configure.json```
 
 ### RUN
