@@ -19,7 +19,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 * Install a Chrome/Chromium webdriver and supply the absolute path to the webdriver in ```utils/browser.py```
 
 ### Setup scraper
-* Create the file ```credentials.json``` in the root of the project (alongside portfolio\_scraper.py):
+1. Create the file ```credentials.json``` in the root of the project (alongside portfolio\_scraper.py):
 ```
 {
 	"alert_email_sender": {
@@ -53,7 +53,8 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 }
 ```
 (__NB!__ ```alert_email_sender``` must be a _Gmail_)
-* Choose the platforms to be scraped and the receiver of any notification-mails. Create ```configure.json``` (alongside credentials.json) and fille it in:
+
+2. Choose the platforms to be scraped and the receiver of any notification-mails. Create ```configure.json``` (alongside credentials.json) and fille it in:
 ```
 {
 	"platforms_to_scrape": [
