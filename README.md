@@ -60,7 +60,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 	"platforms_to_scrape": [
 		"Brickshare",
 		"Nordnet",
-        "Mintos",
+		"Mintos",
 		"Peerberry",
 		"Grupeer",
 		"Fastinvest"
