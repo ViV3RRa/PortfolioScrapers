@@ -50,6 +50,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 		"pwd": ""
 	}
 }```
+
 (__NB!__ ```alert_email_sender``` must be a _Gmail_)
 * Choose the platforms to be scraped and the receiver of any notification-mails in ```configure.json```
 
