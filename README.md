@@ -17,6 +17,8 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 * pip3
 * Install Selenium for Python3
 * Install a Chrome/Chromium webdriver and supply the absolute path to the webdriver in ```utils/browser.py```
+* Install pyvirtualdisplay by running: ```pip3 install pyvirtualdisplay```
+* Install xvfb by running: ```apt-get install xvfb```
 
 ### Setup scraper
 1. Create the file ```credentials.json``` in the root of the project (alongside portfolio\_scraper.py):
