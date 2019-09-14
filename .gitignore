@@ -2,4 +2,5 @@
 configure.json
 credentials.json
 *.html
+*.log
 *~

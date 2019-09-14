@@ -1,5 +1,6 @@
 from platforms.platform import Platform
 import codecs
+import time
 
 class Nordnet(Platform):
 
@@ -30,6 +31,7 @@ class Nordnet(Platform):
     def get_account_value(self):
         try:
             # Retreive total value of account
+            time.sleep(2)
             self.browser.get('https://www.nordnet.dk/oversigt')
             portfolio_today = self.browser.getElement(self.By.CLASS_NAME, 'kgnLnO')
             portfolio_today_value = portfolio_today.text.replace(".", "")
