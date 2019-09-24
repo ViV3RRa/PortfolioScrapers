@@ -21,56 +21,66 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 * Install xvfb by running: ```apt-get install xvfb```
 
 ### Setup scraper
-1. Create the file ```credentials.json``` in the root of the project (alongside portfolio\_scraper.py):
-```
-{
-	"alert_email_sender": {
-		"usr": "",
-		"pwd": ""
-	},
-	"brickshare": {
-		"usr": "",
-		"pwd": ""
-	},
-	"nordnet": {
-		"usr": "",
-		"pwd": ""
-	},
-	"mintos": {
-		"usr": "",
-		"pwd": ""
-	},
-	"peerberry": {
-		"usr": "",
-		"pwd": ""
-	},
-	"grupeer": {
-		"usr": "",
-		"pwd": ""
-	},
-	"fastinvest": {
-		"usr": "",
-		"pwd": ""
-	}
-}
-```
-(__NB!__ ```alert_email_sender``` must be a _Gmail_)
-
-2. Choose the platforms to be scraped and the receiver of any notification-mails. Create ```configure.json``` (alongside credentials.json) and fille it in:
+1. Create the file ```config.json``` in the root of the project (alongside portfolio\_scraper.py):
 ```
 {
 	"platforms_to_scrape": [
-		"Brickshare",
-		"Nordnet",
+		"brickshare",
+		"nordnet",
 		"Mintos",
-		"Peerberry",
-		"Grupeer",
-		"Fastinvest"
+		"peerberry",
+		"grupeer",
+		"fastinvest"
 	],
-	"alert_email_receiver": "",
-	"path_to_persist_data": "/absolute/path/to/persist/data/"
+	"alert_email": {
+		"sender": {
+			"usr": "some@gmail.com",
+			"pwd": ""
+		},
+		"receiver": ""
+	},
+	"path_to_persist_data": "absolute/path/to/persist/data/",
+	"brickshare": {
+		"usr": "",
+		"pwd": "",
+		"account": "some_account_id",
+		"currency": "dkk"
+	},
+	"nordnet": {
+		"usr": "",
+		"pwd": "",
+		"account": "some_account_id",
+		"currency": "dkk"
+	},
+	"mintos": {
+		"usr": "",
+		"pwd": "",
+		"account": "mintos9623564",
+		"currency": "eur"
+	},
+	"peerberry": {
+		"usr": "",
+		"pwd": "",
+		"account": "some_account_id",
+		"currency": "eur"
+	},
+	"grupeer": {
+		"usr": "",
+		"pwd": "",
+		"account": "some_account_id",
+		"currency": "eur"
+	},
+	"fastinvest": {
+		"usr": "",
+		"pwd": "",
+		"account": "some_account_id",
+		"currency": "eur"
+	}
 }
+
 ```
+(__NB!__ ```alert_email.sender``` must be a _Gmail_)
+
 
 ### RUN
 While at the root of the project, run the following command:
