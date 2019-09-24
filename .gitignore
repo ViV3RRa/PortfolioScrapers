@@ -1,6 +1,7 @@
 */__pycache__*
 configure.json
 credentials.json
+config.json
 *.html
 *.log
 *~

@@ -1,4 +1,5 @@
 import json
+import time
 from datetime import datetime
 from platforms.brickshare import BrickShare
 from platforms.nordnet import Nordnet
@@ -27,17 +28,9 @@ def get_platform(platform_name):
 
 
 def __get_from_configure_file(configure_object):
-	with open("configure.json") as f_check:
+	with open("config.json") as f_check:
 		platforms = json.load(f_check)[configure_object]
 	return platforms
-
-
-def get_platforms_to_scrape():
-	return __get_from_configure_file('platforms_to_scrape')
-
-
-def get_receiver_email():
-	return __get_from_configure_file('alert_email_receiver')
 
 
 def __get_path_to_persist_data():
@@ -47,6 +40,9 @@ def __get_path_to_persist_data():
 def get_current_date_as_string():
 	now = datetime.now() # current date and time
 	return now.strftime("%Y-%m-%d")
+
+def get_current_time_in_milliseconds():
+	return int(round(time.time() * 1000))
 
 
 def persist_data_in_file(platform_name, data):

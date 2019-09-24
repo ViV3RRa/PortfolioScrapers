@@ -1,15 +1,15 @@
 import abc
 from selenium.webdriver.common.by import By
 from utils.browser import Browser
-from utils.credentials import Credentials
+from utils.config import Config
 from utils.email_alert import EmailAlert
 
 
-class Platform(abc.ABC):
+class Platform(abc.ABC):    
 
     def __init__(self, platform):
         self.browser = Browser()
-        self.credentials = Credentials(platform)
+        self.credentials = Config(platform)
         self.email_alert = EmailAlert()
         self.By = By
 
@@ -27,6 +27,14 @@ class Platform(abc.ABC):
     @abc.abstractmethod
     def get_available_funds(self):
     	pass
+
+
+    def get_account(self):
+        return self.credentials.account
+
+
+    def get_currency(self):
+        return self.credentials.currency
 
 
     def send_alert_email(self, platform_name, message):

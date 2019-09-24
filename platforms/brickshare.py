@@ -47,7 +47,7 @@ class BrickShare(Platform):
             nav_content = infobox_bottom.find_elements_by_class_name('infobox-bottom-content')[3]
             nav = nav_content.find_element_by_class_name('text-medium').text
 
-            return nav
+            return str(float(nav) * 10000)
         except Exception as e:
             raise
 
