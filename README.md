@@ -11,7 +11,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 * __Peerberry__
 * __Grupeer__
 * __FastInvest__ (__NB!__ Only works with Two-factor authentication __Deactivated__)
-* __Crowdestor__ (On its way)
+* __Crowdestor__ (Coming soon...)
 
 ### Prerequisites!
 * Python 3
