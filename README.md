@@ -11,7 +11,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 * __Peerberry__
 * __Grupeer__
 * __FastInvest__ (__NB!__ Only works with Two-factor authentication __Deactivated__)
-* __Crowdestor__ (Coming soon...)
+* __Crowdestor__
 
 ### Prerequisites!
 * Python 3
@@ -31,7 +31,8 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 		"Mintos",
 		"peerberry",
 		"grupeer",
-		"fastinvest"
+		"fastinvest",
+		"crowdestor"
 	],
 	"alert_email": {
 		"sender": {
@@ -72,6 +73,12 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 		"currency": "eur"
 	},
 	"fastinvest": {
+		"usr": "",
+		"pwd": "",
+		"account": "some_account_id",
+		"currency": "eur"
+	},
+	"crowdestor": {
 		"usr": "",
 		"pwd": "",
 		"account": "some_account_id",

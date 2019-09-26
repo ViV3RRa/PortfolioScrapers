@@ -7,6 +7,7 @@ from platforms.mintos import Mintos
 from platforms.peerberry import Peerberry
 from platforms.grupeer import Grupeer
 from platforms.fastinvest import Fastinvest
+from platforms.crowdestor import Crowdestor
 
 
 def get_platform(platform_name):
@@ -23,6 +24,8 @@ def get_platform(platform_name):
 		return Grupeer()
 	elif platform_name == 'fastinvest':
 		return Fastinvest()
+	elif platform_name == 'crowdestor':
+		return Crowdestor()
 	else:
 		return None
 
