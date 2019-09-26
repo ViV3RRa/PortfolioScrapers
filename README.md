@@ -1,4 +1,4 @@
-<img src="platform_icons/brickshare_logo.jpg" alt="alt text" title="BrickShare" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/nordnet_logo.png" alt="alt text" title="Nordnet" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/mintos_logo.png" alt="alt text" title="Mintos" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/PeerBerry_logo.jpg" alt="alt text" title="Peerberry" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/grupeer_logo.png" alt="alt text" title="Grupeer" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/fastinvest_logo.jpg" alt="alt text" title="FastInvest" height="50">
+<img src="platform_icons/brickshare_logo.jpg" alt="alt text" title="BrickShare" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/nordnet_logo.png" alt="alt text" title="Nordnet" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/mintos_logo.png" alt="alt text" title="Mintos" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/PeerBerry_logo.jpg" alt="alt text" title="Peerberry" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/grupeer_logo.png" alt="alt text" title="Grupeer" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/fastinvest_logo.jpg" alt="alt text" title="FastInvest" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/crowdestor_logo.jpg" alt="alt text" title="Crowdestor" height="50">
 
 # PortfolioScrapers
 This repository contains Python3 scripts for scraping your account information from different investment platforms.
@@ -11,6 +11,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 * __Peerberry__
 * __Grupeer__
 * __FastInvest__ (__NB!__ Only works with Two-factor authentication __Deactivated__)
+* __Crowdestor__ (On its way)
 
 ### Prerequisites!
 * Python 3
