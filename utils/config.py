@@ -3,7 +3,7 @@ import json
 class Config:
 
 	def __init__(self, platform):
-		self.config = self.__get_configurations(platform)
+		self.config = self.__get_configurations()
 		if platform is not None:
 			self.username = self.config[platform]['usr']
 			self.password = self.config[platform]['pwd']
@@ -11,7 +11,7 @@ class Config:
 			self.currency = self.config[platform]['currency']
 
 
-	def __get_configurations(self, platform):
+	def __get_configurations(self):
 		# read json file data from previous run
 		with open("config.json") as f_check:
 			configurations = json.load(f_check)
@@ -32,3 +32,11 @@ class Config:
 
 	def get_platforms_to_scrape(self):
 		return self.config['platforms_to_scrape']
+
+
+	def get_path_to_persist_data(self):
+		return self.config['path_to_persist_data']
+
+
+	def get_accumulated_path(self):
+		return self.config['accumulated_path']

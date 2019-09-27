@@ -21,6 +21,7 @@ class PortfolioScraper:
 					platform.quit()
 					data = '{},{},{},{},{}'.format(get_current_time_in_milliseconds(), total_account_value, available_funds, platform.get_account(), platform.get_currency())
 					persist_data_in_file(platform_name, data)
+					persist_data_in_one_file(data)
 					print(platform_name + ': ' + data)
 			except Exception as e:
 				print(e)

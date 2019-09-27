@@ -1,6 +1,7 @@
 import json
 import time
 from datetime import datetime
+from utils.config import Config
 from platforms.brickshare import BrickShare
 from platforms.nordnet import Nordnet
 from platforms.mintos import Mintos
@@ -30,16 +31,6 @@ def get_platform(platform_name):
 		return None
 
 
-def __get_from_configure_file(configure_object):
-	with open("config.json") as f_check:
-		platforms = json.load(f_check)[configure_object]
-	return platforms
-
-
-def __get_path_to_persist_data():
-	return __get_from_configure_file('path_to_persist_data')
-
-
 def get_current_date_as_string():
 	now = datetime.now() # current date and time
 	return now.strftime("%Y-%m-%d")
@@ -49,6 +40,10 @@ def get_current_time_in_milliseconds():
 
 
 def persist_data_in_file(platform_name, data):
-	with open('{}{}.csv'.format(__get_path_to_persist_data(), platform_name.lower()), 'a') as fd:
+	with open('{}{}.csv'.format(Config(None).get_path_to_persist_data(), platform_name.lower()), 'a') as fd:
 		fd.write(data + '\n')
 
+
+def persist_data_in_one_file(data):
+	with open('{}account_values.csv'.format(Config(None).get_accumulated_path()), 'a') as fd:
+		fd.write(data + '\n')

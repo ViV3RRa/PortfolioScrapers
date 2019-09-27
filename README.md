@@ -42,6 +42,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 		"receiver": ""
 	},
 	"path_to_persist_data": "absolute/path/to/persist/data/",
+	"accumulated_path": "absolute/path/to/accumulated/data/",
 	"brickshare": {
 		"usr": "",
 		"pwd": "",
