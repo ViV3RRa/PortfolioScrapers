@@ -16,8 +16,8 @@ class PortfolioScraper:
 				if platform is not None:
 					platform_name = platform.__class__.__name__
 					platform.login()
-					total_account_value = str(platform.get_account_value()).replace('.', '')
-					available_funds = str(platform.get_available_funds()).replace('.', '')
+					total_account_value = str(int(float(platform.get_account_value()) * 100))
+					available_funds = str(int(float(platform.get_available_funds()) * 100))
 					platform.quit()
 					data = '{},{},{},{},{}'.format(get_current_time_in_milliseconds(), total_account_value, available_funds, platform.get_account(), platform.get_currency())
 					persist_data_in_file(platform_name, data)
