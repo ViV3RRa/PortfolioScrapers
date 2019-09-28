@@ -15,9 +15,9 @@ class Crowdestor(Platform):
             # Fill login form and submit
             form = self.browser.getElement(self.By.ID, 'modal-login')
             username = form.find_element_by_id('email')
-            username.send_keys(self.credentials.username)
+            username.send_keys(self.get_username())
             password = form.find_element_by_id('password')
-            password.send_keys(self.credentials.password)
+            password.send_keys(self.get_password())
             form.submit()
         
         except Exception as e:

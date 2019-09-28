@@ -14,9 +14,9 @@ class Peerberry(Platform):
         
             # Fill login form and submit
             username = self.browser.getElement(self.By.NAME, 'email')
-            username.send_keys(self.credentials.username)
+            username.send_keys(self.get_username())
             password = self.browser.getElement(self.By.NAME, 'password')
-            password.send_keys(self.credentials.password)
+            password.send_keys(self.get_password())
             login = self.browser.getElement(self.By.CLASS_NAME, 'PAGE')
             form = login.find_element_by_tag_name('form')
             form.submit()

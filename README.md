@@ -2,6 +2,7 @@
 
 # PortfolioScrapers
 This repository contains Python3 scripts for scraping your account information from different investment platforms.
+If a platform consists of separate projects the current value of the project will be found along with the total platform value(as a summation of project values).
 Supports email notifications send from a supplied _Gmail_ to a receiver mail if the scraper failes to scrape a platform.
 
 ### Currently supportet platforms
@@ -47,7 +48,10 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 		"usr": "",
 		"pwd": "",
 		"account": "some_account_id",
-		"currency": "dkk"
+		"currency": "dkk",
+		"projects": [
+			"project-id"
+		]
 	},
 	"nordnet": {
 		"usr": "",

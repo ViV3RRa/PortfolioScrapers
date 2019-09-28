@@ -19,10 +19,10 @@ class Mintos(Platform):
             # Fill login form and submit
             username = self.browser.getElement(self.By.ID, 'login-username')
             username.clear()
-            username.send_keys(self.credentials.username)
+            username.send_keys(self.get_username())
             password = self.browser.getElement(self.By.ID, 'login-password')
             password.clear()
-            password.send_keys(self.credentials.password)
+            password.send_keys(self.get_password())
             time.sleep(2)
             form = self.browser.getElement(self.By.ID, 'login-form')
             form.submit()

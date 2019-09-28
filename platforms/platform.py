@@ -9,7 +9,7 @@ class Platform(abc.ABC):
 
     def __init__(self, platform):
         self.browser = Browser()
-        self.credentials = Config(platform)
+        self.config = Config(platform)
         self.email_alert = EmailAlert()
         self.By = By
 
@@ -29,12 +29,36 @@ class Platform(abc.ABC):
     	pass
 
 
+    def get_project_value(self, project_id):
+        return 0
+
+
+    def get_name(self):
+        return self.__class__.__name__
+
+
+    def get_username(self):
+        return self.config.username
+
+
+    def get_password(self):
+        return self.config.password
+
+
     def get_account(self):
-        return self.credentials.account
+        return self.config.account
 
 
     def get_currency(self):
-        return self.credentials.currency
+        return self.config.currency
+
+
+    def has_projects(self):
+        return self.config.has_projects()
+
+
+    def get_projects(self):
+        return self.config.projects
 
 
     def send_alert_email(self, platform_name, message):

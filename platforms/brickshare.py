@@ -15,9 +15,9 @@ class BrickShare(Platform):
 
             # Fill login form and submit
             username = self.browser.getElement(self.By.NAME, 'email')
-            username.send_keys(self.credentials.username)
+            username.send_keys(self.get_username())
             password = self.browser.getElement(self.By.NAME, 'password')
-            password.send_keys(self.credentials.password)
+            password.send_keys(self.get_password())
             form = self.browser.getElement(self.By.ID, 'signin')
             form.submit()
 
@@ -54,5 +54,32 @@ class BrickShare(Platform):
 
     def get_available_funds(self):
         return '0'
+
+
+    def get_project_value(self, project_id):
+        invested_amount = 0
+        project_url = ''
+
+        # Find the amount invested in the project
+        self.browser.get('https://brickshare.dk/account/dashboard')
+        project_container = self.browser.getElement(self.By.CLASS_NAME, 'project-detail-left')
+        projects = project_container.find_elements_by_class_name('project-card-container')
+        for project in projects:
+            url = project.find_element_by_tag_name('a').get_attribute('href')
+            if project_id in url:
+                project_url = url
+                content_wrapper = project.find_element_by_class_name('bottom-part')
+                line = content_wrapper.find_element_by_class_name('line')
+                amount_text = content_wrapper.find_element_by_class_name('amount').text
+                invested_amount += float(amount_text.split(' ')[0].replace('.','').replace(',','.'))
+                break
+
+        # Find the current NAV of the project and return the invested amount multiplied with it
+        if project_url:
+            self.browser.get('https://brickshare.dk/investeringsprojekter/' + project_id)
+            infobox_bottom = self.browser.getElement(self.By.CLASS_NAME, 'infobox-bottom')
+            nav_content = infobox_bottom.find_elements_by_class_name('infobox-bottom-content')[3]
+            nav = nav_content.find_element_by_class_name('text-medium').text
+            return invested_amount * float(nav)
 
 

@@ -31,6 +31,10 @@ def get_platform(platform_name):
 		return None
 
 
+def get_value_in_cents(value):
+	return str(int(float(value) * 100))
+
+
 def get_current_date_as_string():
 	now = datetime.now() # current date and time
 	return now.strftime("%Y-%m-%d")
@@ -44,6 +48,11 @@ def persist_data_in_file(platform_name, data):
 		fd.write(data + '\n')
 
 
-def persist_data_in_one_file(data):
+def persist_account_value(data):
 	with open('{}account_values.csv'.format(Config(None).get_accumulated_path()), 'a') as fd:
+		fd.write(data + '\n')
+
+
+def persist_project_value(data):
+	with open('{}project_values.csv'.format(Config(None).get_accumulated_path()), 'a') as fd:
 		fd.write(data + '\n')

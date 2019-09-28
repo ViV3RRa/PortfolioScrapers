@@ -18,9 +18,9 @@ class Nordnet(Platform):
         
             # Fill login form and submit
             username = self.browser.getElement(self.By.ID, 'username')
-            username.send_keys(self.credentials.username)
+            username.send_keys(self.get_username())
             password = self.browser.getElement(self.By.ID, 'password')
-            password.send_keys(self.credentials.password)
+            password.send_keys(self.get_password())
             form = self.browser.getElement(self.By.CLASS_NAME, 'sign-in-legacy_form')
             form.submit()
         

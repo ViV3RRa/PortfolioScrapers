@@ -4,11 +4,13 @@ class Config:
 
 	def __init__(self, platform):
 		self.config = self.__get_configurations()
+		self.platform = platform
 		if platform is not None:
 			self.username = self.config[platform]['usr']
 			self.password = self.config[platform]['pwd']
 			self.account = self.config[platform]['account']
 			self.currency = self.config[platform]['currency']
+			self.projects = self.config[platform].get('projects', [])
 
 
 	def __get_configurations(self):
@@ -40,3 +42,11 @@ class Config:
 
 	def get_accumulated_path(self):
 		return self.config['accumulated_path']
+
+
+	def has_projects(self):
+		return 'projects' in self.config[self.platform]
+
+
+	def get_projects(self):
+		return self.config[self.platform]['projects']
