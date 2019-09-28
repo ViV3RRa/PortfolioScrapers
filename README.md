@@ -2,11 +2,11 @@
 
 # PortfolioScrapers
 This repository contains Python3 scripts for scraping your account information from different investment platforms.
-If a platform consists of separate projects the current value of the project will be found along with the total platform value(as a summation of project values).
+If a platform consists of individual projects the current value of the project will be found along with the total platform value(as a summation of project values).
 Supports email notifications send from a supplied _Gmail_ to a receiver mail if the scraper failes to scrape a platform.
 
 ### Currently supportet platforms
-* __BrickShare__ (Only supports scraping one BrickShare Project at the moment.)
+* __BrickShare__
 * __Nordnet__
 * __Mintos__ (__NB!__ Only works with Two-factor authentication __Deactivated__)
 * __Peerberry__
