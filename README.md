@@ -30,7 +30,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 	"platforms_to_scrape": [
 		"brickshare",
 		"nordnet",
-		"Mintos",
+		"mintos",
 		"peerberry",
 		"grupeer",
 		"fastinvest",
