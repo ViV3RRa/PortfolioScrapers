@@ -8,7 +8,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 ### Currently supportet platforms
 * __BrickShare__
 * __Nordnet__
-* __Mintos__ (__NB!__ Only works with Two-factor authentication __Deactivated__)
+* ~~__Mintos__ (__NB!__ Only works with Two-factor authentication __Deactivated__)~~ Mintos is sadly not working at the moment due to the introduction of CAPTCHA on their website.
 * __Peerberry__
 * __Grupeer__
 * __FastInvest__ (__NB!__ Only works with Two-factor authentication __Deactivated__)
