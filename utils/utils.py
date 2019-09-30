@@ -9,6 +9,7 @@ from platforms.peerberry import Peerberry
 from platforms.grupeer import Grupeer
 from platforms.fastinvest import Fastinvest
 from platforms.crowdestor import Crowdestor
+from platforms.kuetzal import Kuetzal
 
 
 def get_platform(platform_name):
@@ -27,6 +28,8 @@ def get_platform(platform_name):
 		return Fastinvest()
 	elif platform_name == 'crowdestor':
 		return Crowdestor()
+	elif platform_name == 'kuetzal':
+		return Kuetzal()
 	else:
 		return None
 
