@@ -35,7 +35,7 @@ class Kuetzal(Platform):
             profile_button.click()
 
             column = self.browser.getElement(self.By.CLASS_NAME, 'careerfy-column-3')
-            account_value_unit = column.find_element_by_tag_name('span')
+            account_value_unit = column.find_elements_by_tag_name('b')[6]
             account_value = account_value_unit.text.split(' ')[0]
 
             return account_value
