@@ -16,11 +16,20 @@ class Kuetzal(Platform):
         
             # Fill login form and submit
             login_wrapper = self.browser.getElement(self.By.CLASS_NAME, 'fade-in')
+            form = login_wrapper.find_element_by_tag_name('form')
+
+            # Solve CAPTCHA math equation
+            captcha_row = form.find_elements_by_tag_name('li')[2]
+            captcha_test = captcha_row.find_elements_by_tag_name('td')[0]
+            test_str = captcha_test.text.split('=')[0]
+            test_result = str(eval(test_str))
+            captcha_input = captcha_row.find_element_by_name('rr')
+            captcha_input.send_keys(test_result)
+
             username = login_wrapper.find_element_by_name('login')
             username.send_keys(self.get_username())
             password = login_wrapper.find_element_by_name('password')
             password.send_keys(self.get_password())
-            form = login_wrapper.find_element_by_tag_name('form')
             form.submit()
             
         except Exception as e:
@@ -30,9 +39,7 @@ class Kuetzal(Platform):
     def get_account_value(self):
         try:
             # Retreive total value of account
-            profile_button_wrapper = self.browser.getElement(self.By.CLASS_NAME, 'theaccount')
-            profile_button = profile_button_wrapper.find_element_by_class_name('careerfy-simple-btn')
-            profile_button.click()
+            self.browser.get('https://kuetzal.com/en/profile/')
 
             column = self.browser.getElement(self.By.CLASS_NAME, 'careerfy-column-3')
             account_value_unit = column.find_elements_by_tag_name('b')[6]
