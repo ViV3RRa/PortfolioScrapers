@@ -69,8 +69,7 @@ class BrickShare(Platform):
             if project_id in url:
                 project_url = url
                 content_wrapper = project.find_element_by_class_name('bottom-part')
-                line = content_wrapper.find_element_by_class_name('line')
-                amount_text = content_wrapper.find_element_by_class_name('amount').text
+                amount_text = content_wrapper.find_elements_by_class_name('amount')[1].text
                 invested_amount += float(amount_text.split(' ')[0].replace('.','').replace(',','.'))
 
         # Find the current NAV of the project and return the invested amount multiplied with it
