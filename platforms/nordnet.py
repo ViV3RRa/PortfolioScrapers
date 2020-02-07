@@ -33,7 +33,7 @@ class Nordnet(Platform):
             # Retreive total value of account
             time.sleep(2)
             self.browser.get('https://www.nordnet.dk/oversigt')
-            portfolio_today = self.browser.getElement(self.By.CLASS_NAME, 'XrueC')
+            portfolio_today = self.browser.getElement(self.By.CLASS_NAME, 'dlWxb')
             portfolio_today_value = portfolio_today.text.replace(".", "")
 
             return portfolio_today_value
@@ -45,7 +45,7 @@ class Nordnet(Platform):
         try:
             # Retreive available funds in account
             available_funds_container = self.browser.getElement(self.By.CLASS_NAME, 'bfAmAx')
-            available_funds_element = available_funds_container.find_element_by_class_name('cMZjQ')
+            available_funds_element = available_funds_container.find_element_by_class_name('famDvB')
             available_funds = available_funds_element.text.replace(".", "")
 
             return available_funds
