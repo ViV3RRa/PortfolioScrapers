@@ -17,7 +17,7 @@ class Iuvo(Platform):
             username.send_keys(self.get_username())
             password = self.browser.getElement(self.By.ID, 'p2p_login_form_password')
             password.send_keys(self.get_password())
-            form = login.find_element_by_tag_name('form')
+            form = self.browser.getElement(self.By.TAG_NAME, 'form')
             form.submit()
         
         except Exception as e:
@@ -28,9 +28,9 @@ class Iuvo(Platform):
         try:
             # Retreive total value of account
             table = self.browser.getElement(self.By.CLASS_NAME, 'p2p-table')
-            row = table.find_elements_by_tag('tr')[3]
-            wrapper = row.find_elements_by_class_name('text-right')
-            account_info = wrapper.find_elements_by_tag('strong')
+            row = table.find_elements_by_tag_name('tr')[3]
+            wrapper = row.find_element_by_class_name('text-right')
+            account_info = wrapper.find_element_by_tag_name('strong')
             total_value = account_info.text.split('.')[0].strip()
 
             return total_value
@@ -42,8 +42,8 @@ class Iuvo(Platform):
         try:
             # Retreive total value of account
             table = self.browser.getElement(self.By.CLASS_NAME, 'p2p-table')
-            row = table.find_elements_by_tag('tr')[1]
-            available_funds_info = row.find_elements_by_class_name('text-right')
+            row = table.find_elements_by_tag_name('tr')[1]
+            available_funds_info = row.find_element_by_class_name('text-right')
             available_funds = available_funds_info.text.split('.')[0].strip()
 
             return available_funds
