@@ -10,6 +10,7 @@ from platforms.grupeer import Grupeer
 from platforms.fastinvest import Fastinvest
 from platforms.crowdestor import Crowdestor
 from platforms.kuetzal import Kuetzal
+from platforms.iuvo import Iuvo
 
 
 def get_platform(platform_name):
@@ -30,6 +31,8 @@ def get_platform(platform_name):
 		return Crowdestor()
 	elif platform_name == 'kuetzal':
 		return Kuetzal()
+	elif platform_name == 'iuvo':
+		return Iuvo()
 	else:
 		return None
 
