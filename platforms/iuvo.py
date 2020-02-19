@@ -31,7 +31,7 @@ class Iuvo(Platform):
             row = table.find_elements_by_tag_name('tr')[3]
             wrapper = row.find_element_by_class_name('text-right')
             account_info = wrapper.find_element_by_tag_name('strong')
-            total_value = account_info.text.split('.')[0].strip()
+            total_value = account_info.text.split('E')[0].strip()
 
             return total_value
         except Exception as e:
@@ -44,7 +44,7 @@ class Iuvo(Platform):
             table = self.browser.getElement(self.By.CLASS_NAME, 'p2p-table')
             row = table.find_elements_by_tag_name('tr')[1]
             available_funds_info = row.find_element_by_class_name('text-right')
-            available_funds = available_funds_info.text.split('.')[0].strip()
+            available_funds = available_funds_info.text.split('E')[0].strip()
 
             return available_funds
         except Exception as e:
