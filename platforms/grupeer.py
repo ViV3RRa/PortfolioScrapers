@@ -28,7 +28,7 @@ class Grupeer(Platform):
     def get_account_value(self):
         try:
             # Retreive total value of account
-            account_info = self.browser.getElement(self.By.CLASS_NAME, 'block-value')
+            account_info = self.browser.getElement(self.By.CLASS_NAME, 'main-value  ')
             total_value = account_info.text.split('€')[1].strip()
 
             return total_value
@@ -40,7 +40,7 @@ class Grupeer(Platform):
         try:
             # Retreive total value of account
             overview_block = self.browser.getElement(self.By.CLASS_NAME, 'overview-block')
-            available_funds_row = overview_block.find_elements_by_class_name('row')[0]
+            available_funds_row = overview_block.find_elements_by_class_name('row')[1]
             available_funds_component = available_funds_row.find_element_by_class_name('block-info-value')
             available_funds = available_funds_component.text.split('€')[1].strip()
 
