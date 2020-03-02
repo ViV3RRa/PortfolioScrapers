@@ -11,6 +11,7 @@ from platforms.fastinvest import Fastinvest
 from platforms.crowdestor import Crowdestor
 from platforms.kuetzal import Kuetzal
 from platforms.iuvo import Iuvo
+from platforms.saxoinvestor import SaxoInvestor
 
 
 def get_platform(platform_name):
@@ -19,6 +20,8 @@ def get_platform(platform_name):
 		return BrickShare()
 	elif platform_name == 'nordnet':
 		return Nordnet()
+	elif platform_name == 'saxoinvestor':
+		return SaxoInvestor()
 	elif platform_name == 'mintos':
 		return Mintos()
 	elif platform_name == 'peerberry':
