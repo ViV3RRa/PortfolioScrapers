@@ -12,12 +12,15 @@ from platforms.crowdestor import Crowdestor
 from platforms.kuetzal import Kuetzal
 from platforms.iuvo import Iuvo
 from platforms.saxoinvestor import SaxoInvestor
+from platforms.kameo import Kameo
 
 
 def get_platform(platform_name):
 	platform_name = platform_name.lower()
 	if platform_name == 'brickshare':
 		return BrickShare()
+	elif platform_name == 'kameo':
+		return Kameo()
 	elif platform_name == 'nordnet':
 		return Nordnet()
 	elif platform_name == 'saxoinvestor':

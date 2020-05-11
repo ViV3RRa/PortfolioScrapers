@@ -1,4 +1,4 @@
-<img src="platform_icons/brickshare_logo.jpg" alt="alt text" title="BrickShare" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/nordnet_logo.png" alt="alt text" title="Nordnet" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/saxoinvestor_logo.png" alt="alt text" title="SaxoInvestor" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/mintos_logo.png" alt="alt text" title="Mintos" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/PeerBerry_logo.jpg" alt="alt text" title="Peerberry" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/grupeer_logo.png" alt="alt text" title="Grupeer" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/fastinvest_logo.jpg" alt="alt text" title="FastInvest" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/crowdestor_logo.png" alt="alt text" title="Crowdestor" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/kuetzal_logo.png" alt="alt text" title="Kuetzal" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/iuvo_logo.png" alt="alt text" title="Iuvo" height="50">
+<img src="platform_icons/brickshare_logo.jpg" alt="alt text" title="BrickShare" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/kameo_logo.png" alt="alt text" title="Kameo" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/nordnet_logo.png" alt="alt text" title="Nordnet" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/saxoinvestor_logo.png" alt="alt text" title="SaxoInvestor" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/mintos_logo.png" alt="alt text" title="Mintos" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/PeerBerry_logo.jpg" alt="alt text" title="Peerberry" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/grupeer_logo.png" alt="alt text" title="Grupeer" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/fastinvest_logo.jpg" alt="alt text" title="FastInvest" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/crowdestor_logo.png" alt="alt text" title="Crowdestor" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/kuetzal_logo.png" alt="alt text" title="Kuetzal" height="50">&nbsp;&nbsp;&nbsp;&nbsp;<img src="platform_icons/iuvo_logo.png" alt="alt text" title="Iuvo" height="50">
 
 # PortfolioScrapers
 This repository contains Python3 scripts for scraping your account information from different investment platforms.
@@ -7,6 +7,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 
 ### Currently supportet platforms
 * __BrickShare__
+* __Kameo__
 * __Nordnet__
 * __SaxoInvestor__
 * ~~__Mintos__ (__NB!__ Only works with Two-factor authentication __Deactivated__)~~ Mintos is sadly not working at the moment due to the introduction of CAPTCHA on their website.
@@ -31,6 +32,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 {
 	"platforms_to_scrape": [
 		"brickshare",
+		"kameo",
 		"nordnet",
 		"saxoinvestor",
 		"mintos",
@@ -58,6 +60,12 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 		"projects": [
 			"project-id"
 		]
+	},
+	"kameo": {
+		"usr": "",
+		"pwd": "",
+		"account": "some_account_id",
+		"currency": "dkk"
 	},
 	"nordnet": {
 		"usr": "",
