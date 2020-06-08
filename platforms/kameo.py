@@ -31,7 +31,7 @@ class Kameo(Platform):
             dashboard = self.browser.getElement(self.By.CLASS_NAME, 'dashboard')
             portfolio_value_container = dashboard.find_elements_by_class_name('panel-default')[3]
             portfolio_value = portfolio_value_container.find_element_by_class_name('pull-right')
-            portfolio_value_formated = portfolio_value.text.split(',')[0]
+            portfolio_value_formated = portfolio_value.text.replace(',', '.')
 
             return portfolio_value_formated
         except Exception as e:
@@ -44,7 +44,7 @@ class Kameo(Platform):
             dashboard = self.browser.getElement(self.By.CLASS_NAME, 'dashboard')
             available_funds_container = dashboard.find_elements_by_class_name('panel-default')[0]
             available_funds = available_funds_container.find_element_by_tag_name('a')
-            available_funds_formated = available_funds.text.split(',')[0]
+            available_funds_formated = available_funds.text.replace(',', '.')
 
             return available_funds_formated
         except Exception as e:
