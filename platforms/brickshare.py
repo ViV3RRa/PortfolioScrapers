@@ -57,7 +57,7 @@ class BrickShare(Platform):
 
 
     def get_project_value(self, project_id):
-        invested_amount = 0
+        current_value = 0
         project_url = ''
 
         # Find the amount invested in the project
@@ -69,15 +69,9 @@ class BrickShare(Platform):
             if project_id in url:
                 project_url = url
                 content_wrapper = project.find_element_by_class_name('bottom-part')
-                amount_text = content_wrapper.find_elements_by_class_name('amount')[1].text
-                invested_amount += float(amount_text.split(' ')[0].replace('.','').replace(',','.'))
+                amount_text = content_wrapper.find_elements_by_class_name('amount')[4].text
+                current_value += float(amount_text.split(' ')[0].replace('.','').replace(',','.'))
 
-        # Find the current NAV of the project and return the invested amount multiplied with it
-        if project_url:
-            self.browser.get('https://brickshare.dk/investeringsprojekter/' + project_id)
-            infobox_bottom = self.browser.getElement(self.By.CLASS_NAME, 'infobox-bottom')
-            nav_content = infobox_bottom.find_elements_by_class_name('infobox-bottom-content')[3]
-            nav = nav_content.find_element_by_class_name('text-medium').text
-            return invested_amount * float(nav)
+        return current_value
 
 
