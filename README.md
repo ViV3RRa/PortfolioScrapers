@@ -12,7 +12,7 @@ Supports email notifications send from a supplied _Gmail_ to a receiver mail if 
 * __SaxoInvestor__
 * ~~__Mintos__ (__NB!__ Only works with Two-factor authentication __Deactivated__)~~ Mintos is sadly not working at the moment due to the introduction of CAPTCHA on their website.
 * __Peerberry__
-* __Grupeer__
+* ~~__Grupeer__~~ Grupeer is sadly not working at the moment due to the introduction of CAPTCHA on their website.
 * __FastInvest__ (__NB!__ Only works with Two-factor authentication __Deactivated__)
 * __Crowdestor__
 * ~~__Kuetzal__~~ (__NB!__ Out of business)

@@ -27,7 +27,7 @@ class Fastinvest(Platform):
     def get_account_value(self):
         try:
             # Retreive total value of account
-            account_info = self.browser.getElement(self.By.CLASS_NAME, 'col-xl-9')
+            account_info = self.browser.getElement(self.By.CLASS_NAME, 'col-xl-12')
             account_value_and_unit = account_info.find_element_by_class_name('amount-trim')
             account_value = account_value_and_unit.text.split('€')[1].strip()
 
@@ -39,8 +39,9 @@ class Fastinvest(Platform):
     def get_available_funds(self):
         try:
             # Retreive total value of account
-            account_info = self.browser.getElement(self.By.CLASS_NAME, 'col-xl-9')
-            available_funds_and_unit = account_info.find_elements_by_class_name('amount-trim')[1]
+            account_info = self.browser.getElement(self.By.CLASS_NAME, 'toggle-content-flex')
+            details_row = account_info.find_elements_by_class_name('justify-content-md-end')[1]
+            available_funds_and_unit = details_row.find_element_by_class_name('amount-trim')
             available_funds = available_funds_and_unit.text.split('€')[1].strip()
 
             return available_funds
